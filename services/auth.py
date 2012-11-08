@@ -1,4 +1,5 @@
 import web
+from models.user import User
 
 class auth:
     def __init__(self):
@@ -9,7 +10,7 @@ class auth:
         web.debug(passwd)
         if(user != None and passwd != None and user == passwd):
             web.debug("AUTHED")
-            web.config.session.user = True
+            web.config.session.user = User()
             return True
         return False
 
