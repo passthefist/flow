@@ -4,3 +4,8 @@ class tbl(object):
 
     def __setattr__(self, key, value):
         self.__dict__[key] = value
+
+    def get(self, key, default=None):
+        if key not in self.__dict__:
+            return default
+        return self.__dict__[key]
