@@ -1,6 +1,7 @@
 import web
 from inc.structs import *
 from controllers import *
+from db.session import Session as db_session
 
 print dir(index)
 
@@ -21,8 +22,11 @@ web.config.appconf = tbl(
     )
 )
 
+web.config.dbpath = 'sqlite:///db/flow.db'
+
 if __name__ == "__main__":
     app = web.application(urls, globals())
     web.config.session = web.session.Session(app, web.session.DiskStore('sessions'))
+    app.add_processor(db_session.load)
 
     app.run()

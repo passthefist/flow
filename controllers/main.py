@@ -4,6 +4,7 @@ from inc.webrules import must
 render = web.template.render('templates/')
 
 def tutorial():
+
     return 'tutorial'
 
 class actions:

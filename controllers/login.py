@@ -25,5 +25,7 @@ class actions:
             passwd = form.d.passwd
 
             if(auth.login(user,passwd)):
+                print('logged in!')
                 return { 'success': True }
+        print('failed')
         return { 'success': False }
